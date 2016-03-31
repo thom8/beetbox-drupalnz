@@ -1,0 +1,20 @@
+---
+machine:
+  hosts:
+    beetbox-drupalnz.local: 127.0.0.1
+  environment:
+    BEET_HOME: /beetbox
+    BEET_BASE: /var/beetbox
+    BEET_USER: ubuntu
+    BEET_DEPENDENCIES: https://raw.githubusercontent.com/beetboxvm/beetbox/master/provisioning/beetbox.sh
+    DEFAULT_TIMEZONE: Antarctica/South_Pole
+dependencies:
+  override:
+    - sudo cp ~/$CIRCLE_PROJECT_REPONAME/.beetbox/config.yml ~/vagrant.config.yml
+    - sudo cp -rf ~/$CIRCLE_PROJECT_REPONAME $BEET_BASE ; sudo chown -R $BEET_USER:$BEET_USER $BEET_BASE
+    - bash <(curl -s $BEET_DEPENDENCIES)
+test:
+  override:
+    - echo "Running Tests"
+    - php -i | grep "Default timezone => $DEFAULT_TIMEZONE"
+    #- /path/to/other/tests

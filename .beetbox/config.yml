@@ -1,0 +1,34 @@
+---
+beet_domain: beetbox-drupalnz.local
+beet_root: "{{ beet_base}}/{{ beet_project }}"
+
+# Demo 1 - Custom PHP & timezone
+
+beet_project: custom
+php_date_timezone: "Antarctica/South_Pole"
+
+# Demo 2 - Silverstripe
+
+#beet_project: silverstripe
+#ss_create_project: yes
+#ss_install_site: yes
+#ss_account_name: admin
+#ss_account_pass: admin
+
+# Demo 3 - Wordpress
+
+#beet_project: wordpress
+#wp_download_core: yes
+#wp_install_site: yes
+#wp_account_name: admin
+#wp_account_pass: admin
+#wp_account_email: "admin@beetbox.local"
+
+# Demo 4 - Drupal
+
+#beet_project: drupal
+#drupal_create_makefile: yes
+#drupal_build_makefile: yes
+#drupal_install_site: yes
+#drupal_account_name: admin
+#drupal_account_pass: admin
